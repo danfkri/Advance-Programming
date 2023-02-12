@@ -1,12 +1,9 @@
 import numpy as np
 import cv2
 import imutils
-import sys
 import pytesseract
-import pandas as pd
-import time
 
-image = cv2.imread('car.jpg')
+image = cv2.imread('car1.jpg')
 
 image = imutils.resize(image, width=500)
 
@@ -41,10 +38,9 @@ cv2.namedWindow("Final_image",cv2.WINDOW_NORMAL)
 cv2.imshow("Final_image",new_image)
 
 # Configuration for tesseract
-config = ('-l eng --oem 1 --psm 3')
-
+config = ('--psm 9 --oem 3')
 # Run tesseract OCR on image
-text = pytesseract.image_to_string(new_image, config=config)
+text = pytesseract.image_to_string(new_image, config = config)
 
 
 # Print recognized text
